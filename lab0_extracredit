@@ -1,0 +1,26 @@
+#input
+Quantity = int(50)
+Rate = int(20)
+TAX_RATE = "national tax:5.0,state tax:6.0, city tax:2.0"
+
+#process
+Due = (Quantity * Rate)
+DueFormat = f"{Due:,}"
+
+nat_tax = float(TAX_RATE[13] + "." + TAX_RATE[15]) 
+nat_per = (nat_tax / 100.0 * Due)
+sta_tax = float(TAX_RATE[27] + "." + TAX_RATE[29])
+sta_per = (sta_tax / 100.0 * Due)
+cit_tax = float(TAX_RATE[-3] + "." + TAX_RATE[-1])
+cit_per = (nat_tax / 100.0 * Due)
+tax_total = (nat_per + sta_per + cit_per)
+
+#output
+print("A total of " + str(Quantity) + " units are to be sold at a rate of $" + str(Rate) + " per unit.")
+print("Tax Breakdown")
+print("------------------------------")
+print("National Tax (" + str(nat_tax) + "0%)   $" + str(nat_per))
+print("State Tax    (" + str(sta_tax) + "0%)   $" + str(sta_per))
+print("City Tax     (" + str(cit_tax) + "0%)   $" + str(cit_per))
+print("------------------------------")
+print("Total Tax              $" + str(tax_total))
