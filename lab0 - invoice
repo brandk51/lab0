@@ -1,0 +1,12 @@
+#input
+Quantity = int(50)
+Rate = int(20)
+Tax = float(1.05)
+
+#process
+Due = (Quantity * Rate * Tax)
+DueFormat = f"{Due:,}"
+
+#output
+print("A total of " + str(Quantity) + " units are to be sold at a rate of " + str(Rate) + " per unit.")
+print("Total Due " + str(DueFormat))
